@@ -14,6 +14,9 @@ type (
 
 	// QuestionType is the type for question type option.
 	QuestionType string
+
+	// QuestionEncode is the type for question encode option.
+	QuestionEncode string
 )
 
 const (
@@ -110,6 +113,20 @@ const (
 	QuestionTypeTrueFalse QuestionType = "boolean"
 )
 
+const (
+	// QuestionEncodeBase64 is the value for "default" question encode.
+	QuestionEncodeDefault QuestionEncode = ""
+
+	// QuestionEncodeBase64 is the value for "urlLegacy" question encode.
+	QuestionEncodeUrlLegacy QuestionEncode = "urlLegacy"
+
+	// QuestionEncodeBase64 is the value for "url3986" question encode.
+	QuestionEncodeUrl3986 QuestionEncode = "url3986"
+
+	// QuestionEncodeBase64 is the value for "base64" question encode.
+	QuestionEncodeBase64 QuestionEncode = "base64"
+)
+
 var (
 	// DefaultQuestionListOptions is the default options of Question List
 	// method.
@@ -137,6 +154,7 @@ type QuestionListOptions struct {
 	Limit      uint8              `url:"amount,omitempty"`
 	Token      Token              `url:"token,omitempty"`
 	Type       QuestionType       `url:"type,omitempty"`
+	Encode     QuestionEncode     `url:"encode,omitempty"`
 }
 
 // QuestionRandomOptions are the options for QuestionService Random
